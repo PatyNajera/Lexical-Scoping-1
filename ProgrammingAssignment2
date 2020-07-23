@@ -6,17 +6,17 @@ x <<- y
 z <<- NULL
 }
 do <- function()x
-setInverse <- function(inverse) z <<- inverse
-doInverse <- function() z 
-list(set = set, do = do, setInverse = setInverse, doInverse = doInverse)
+setInv <- function(inv) z <<- inverse
+doInv <- function() z 
+list(set = set, do = do, setInv = setInv, doInv = doInv)
 } 
 > cacheSolve <- function(x, ...) {
-z <- x$doInverse()
+z <- x$doInv()
 if(!is.null(z)){message("cache data")
 return(z)
 }
 l <- x$do()
 z <- solve(l,...)
-x$setInverse(z)
+x$setInv(z)
 z
 }
